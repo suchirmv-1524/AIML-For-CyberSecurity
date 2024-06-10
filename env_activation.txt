@@ -1,0 +1,6 @@
+environment : /Users/suchirmvelpanur/anaconda3/bin/python
+
+Commands:
+1) conda env list - to get list of envs (use base)
+2) source activate base in terminal (to work seamlessly)
+3) Only after source activate base and it shifts to (base), anything can be installed using pip install
