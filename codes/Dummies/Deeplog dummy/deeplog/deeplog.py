@@ -188,14 +188,14 @@ class DeepLog(Module):
         hidden = self._get_initial_state(X)
         state  = self._get_initial_state(X)
 
-        # Perform LSTM layer
-        out, _ = self.lstm(X, (hidden, state))
+        with torch.no_grad():
+            out, _ = self.lstm(X, (hidden, state))
 
-        # Perform output layer
-        out = self.out(out[:, -1, :])
+            # Perform output layer
+            out = self.out(out[:, -1, :])
 
-        # Create probability
-        out = self.softmax(out)
+            # Create probability
+            out = self.softmax(out)
 
         # Get the probabilities from the log probabilities
         result = out.exp()
